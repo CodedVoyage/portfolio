@@ -1,0 +1,81 @@
+/* Center-align the entire projects container */
+.projects-section {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #1f2635; /* Change project container color */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Title styling */
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #fff; /* Change title color for visibility */
+}
+
+/* Timeline container */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto; /* Center the timeline */
+}
+
+/* Timeline entry */
+.timeline-entry {
+    display: flex;
+    align-items: flex-start;
+    margin: 20px 0;
+    position: relative;
+}
+
+/* Timeline dot */
+.timeline-dot {
+    height: 20px;
+    width: 20px;
+    background-color: #007BFF; /* Keep dot blue */
+    border-radius: 50%;
+    position: absolute;
+    left: -10px; /* Adjust position */
+    top: 0;
+}
+
+/* Timeline content for work experience */
+.timeline-content.work {
+    background-color: #271414;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 30px;
+    color: #fff;
+}
+
+/* Timeline content for project experience */
+.timeline-content.project {
+    background-color: #292121; /* Project experience card color */
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 30px;
+    color: #fff; /* Change text color for contrast */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .timeline-entry {
+        flex-direction: column; /* Stack entries on smaller screens */
+        align-items: flex-start; /* Align items to start */
+    }
+
+    .timeline-dot {
+        position: static; /* Remove absolute positioning */
+        margin-bottom: 10px; /* Add spacing below dot */
+    }
+
+    .timeline-content {
+        margin-left: 0; /* Remove left margin */
+    }
+}
