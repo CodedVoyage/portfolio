@@ -1,5 +1,5 @@
 import React from 'react';
-import { certificationsData, papersData } from './data/data';
+import { certificationsData, papersData } from './Data/Data';
 import './css/certifications.css';
 
 const Certifications = () => {

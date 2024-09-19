@@ -1,5 +1,5 @@
 import React from 'react';
-import { educationData } from './data/data'; 
+import { educationData } from './Data/Data'; 
 import './css/education.css'; 
 const Education = () => {
     return (

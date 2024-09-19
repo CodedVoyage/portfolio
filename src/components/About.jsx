@@ -1,5 +1,5 @@
 ﻿import React, { useState, useEffect } from 'react';
-import { aboutData } from './Data/data';
+import { aboutData } from './Data/Data';
 import TypewriterComponent from './TypewriterComponent';
 import './css/About.css';
 
