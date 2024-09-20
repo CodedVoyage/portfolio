@@ -1,4 +1,4 @@
-/* src/App.css */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -49,7 +49,6 @@ body {
     background-color: #e4e4e4;
 }
 
-/* Add styles for other sections */
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
@@ -57,8 +56,6 @@ body {
     }
 }
 
-/*About section css*/
-/* src/components/About.css */
 .about-container {
     text-align: center;
     padding: 20px;
@@ -67,9 +64,46 @@ body {
 h1, h2 {
     margin: 0;
     font-family: 'Arial', sans-serif;
+
 }
 
 .typewriter-text {
     font-weight: bold;
     color: #FC4D03; /* Customize color as needed */
+}
+
+/* Common color variables */
+:root {
+    --text-color: #dbe1e7; /* Default light mode text color */
+    --background-color: #ffffff; /* Default light mode background color */
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text-color: #dbe1e7;
+        --background-color: #ffffff;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #ffffff; /* Dark mode text color */
+        --background-color: #1d2639; /* Dark mode background color */
+    }
+}
+
+/* Applying the colors */
+body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+.h3, h3 {
+    font-size: 1rem;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.h4, h4 {
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
 }

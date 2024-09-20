@@ -1,52 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { projectExperienceData, workExperienceData } from './Data/Data';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import './css/projects.css';
 
 const Projects = () => {
     return (
-        <div className="projects-section">
-            <h2>Work Experience</h2>
-            <div className="timeline">
+        <div className="projects-section p-4">
+            <h2 className="text-center my-4 text-light">Work Experience</h2>
+            <div className="row justify-content-center">
                 {workExperienceData.map((exp, index) => (
-                    <div key={index} className="timeline-entry">
-                        <div className="timeline-dot"></div>
-                        <div className="timeline-content work"> {/* Apply work class */}
-                            <h3>{exp.company}</h3>
-                            <p><strong>Duration:</strong> {exp.duration}</p>
-                            <p><strong>Role:</strong> {exp.role}</p>
-                            {exp.client && <p><strong>Client:</strong> {exp.client}</p>}
+                    <div key={index} className="col-md-7 col-lg-7 mb-3">
+                        <div className="timeline-content work card shadow-sm p-3">
+                            <h3 className="card-title">{exp.company}</h3>
+                            <p className="mb-1"><strong>Duration:</strong> {exp.duration}</p>
+                            <p className="mb-1"><strong>Role:</strong> {exp.role}</p>
+                            {exp.client && <p className="mb-1"><strong>Client:</strong> {exp.client}</p>}
                             {exp.project && <p><strong>Project:</strong> {exp.project}</p>}
                         </div>
                     </div>
                 ))}
             </div>
 
-            <h2>Project Experience</h2>
-            <div className="timeline">
+
+            <h2 className="text-center my-4 text-light">Project Experience</h2>
+            <div className="row justify-content-center">
                 {projectExperienceData.map((proj, index) => (
-                    <div key={index} className="timeline-entry">
-                        <div className="timeline-dot"></div>
-                        <div className="timeline-content project"> {/* Apply project class */}
-                            <h3>{proj.project}</h3>
-                            <p><strong>Company:</strong> {proj.company}</p>
-                            <p><strong>Role:</strong> {proj.role}</p>
-                            <p><strong>Description:</strong></p>
-                            <p>{proj.description}</p>
-                            <div className="tools-section">
-                                {proj.tools.map((tool, idx) => (
-                                    <div key={idx} className="tool-card">
-                                        <h4>{tool.type}</h4>
-                                        <ul>
-                                            {tool.items.map((item, id) => (
-                                                <li key={id}>{item}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+                    <ProjectCard key={index} project={proj} />
                 ))}
+            </div>
+        </div>
+    );
+};
+
+const ProjectCard = ({ project }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const toggleExpand = () => {
+        setIsExpanded(prev => !prev);
+    };
+
+    return (
+        <div className="col-md-6 col-lg-4 mb-4">
+            <div
+                className={`timeline-content project card shadow-sm p-3 ${isExpanded ? 'expanded' : ''}`}
+                onMouseEnter={toggleExpand}
+                onMouseLeave={toggleExpand}
+            >
+                <h3 className="card-title text-center">{project.project}</h3>
+                <p className="mb-1 text-center"><strong>Company:</strong> {project.company}</p>
+                <p className="mb-1 text-center"><strong>Role:</strong> {project.role}</p>
+                <p className="mb-1"><strong>Description:</strong></p>
+                <p className="text-justify">
+                    {project.description}
+                </p>
+
+                {isExpanded && project.tools && (
+                    <div className="tools-section mt-2">
+                        <h5>Tools Used:</h5>
+                        <table className="table-tools">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Tools</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {project.tools.map((tool, idx) => (
+                                    <tr key={idx}>
+                                        <td>{tool.type}</td>
+                                        <td>
+                                            <ul className="list-unstyled">
+                                                {tool.items.map((item, id) => (
+                                                    <li key={id}>{item}</li>
+                                                ))}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
             </div>
         </div>
     );

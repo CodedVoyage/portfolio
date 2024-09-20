@@ -1,17 +1,34 @@
-/* src/components/About.css */
-
 /* Container styling for the About section */
 .about-container {
-    position: relative;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 81%;
-    text-align: center;
-    padding: 6% 11% 3% 8% !important;
+    width: 70%;
+    max-width: 100%;
+    text-align: left;
+    padding: 6% 4% 3% 8% !important;
     background-color: #1d2639;
     margin: auto;
+}
+
+/* Styling for the profile picture container */
+.profile-picture-container {
+    flex-shrink: 0;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 50%; /* Circular shape */
+    border: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for the profile picture */
+.profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image fits within the circular container */
 }
 
 /* Styling for headings */
@@ -24,7 +41,8 @@ h1, h2 {
 .typewriter-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    margin: 2% 0% 2% 35%;
 }
 
 /* Styling for the introductory text */
@@ -38,75 +56,40 @@ h1, h2 {
     font-weight: bold;
     color: white;
     font-size: 1.6em;
+    margin: 1% 1% 0% 19%;
 }
 
 /* Spacing between introductory text and typewriter effect */
 .spacing {
-    margin: 0 5px; /* Adjust spacing as needed */
+    margin: 0 5px;
 }
 
 /* Styling for the typewriter text */
 .typewriter-text {
     font-weight: bold;
     color: #FC4D03;
-    font-size: 1.2em; /* Adjust font size as needed */
-}
-
-/* Add this keyframes for bouncing and random movement */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-
-    40% {
-        transform: translateY(-30px);
-    }
-
-    60% {
-        transform: translateY(-15px);
-    }
-}
-
-@keyframes moveRandomly {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    25% {
-        transform: translate(10px, 10px);
-    }
-
-    50% {
-        transform: translate(-10px, -10px);
-    }
-
-    75% {
-        transform: translate(10px, -10px);
-    }
-
-    100% {
-        transform: translate(-10px, 10px);
-    }
+    font-size: 1.2em;
 }
 
 /* Primary button styling */
 .primary-button {
-    border: none; /* Remove default border */
-    background: linear-gradient(45deg, #FC4D03, #FF6F61, #FFB6C1); /* Gradient background */
-    color: white; /* Text color */
-    padding: 10px 20px; /* Adjust padding as needed */
-    font-size: 16px; /* Font size */
-    font-weight: bold; /* Font weight */
-    border-radius: 14px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background 0.3s, transform 0.3s; /* Smooth transition */
-    border: 2px solid transparent; /* Transparent border for outline effect */
-    animation: bounce 1s infinite, moveRandomly 5s infinite; /* Apply animations */
+    border: none;
+    background: linear-gradient(45deg, #FC4D03, #FF6F61, #FFB6C1);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    border: 2px solid transparent;
+    animation: bounce 1s infinite, moveRandomly 5s infinite;
+    margin: 3% 0% 0% 19%;
 }
 
     .primary-button:hover {
-        background: linear-gradient(45deg, #FF6F61, #FC4D03, #FFB6C1); /* Reverse gradient on hover */
-        transform: scale(1.05); /* Slightly enlarge the button on hover */
+        background: linear-gradient(45deg, #FF6F61, #FC4D03, #FFB6C1);
+        transform: scale(1.05);
     }
 
 /* Styling for the introduction text */
@@ -117,19 +100,60 @@ h1, h2 {
     color: rgba(242, 243, 244, 0.584);
 }
 
-/* Styling for the button container with mouse tracking */
-.button-container {
-    position: relative;
-    display: inline-block;
+/* Responsive styling for smaller screens */
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 4% 5%; /* Reduce padding for smaller screens */
+        text-align: center; /* Center align text */
+        margin-top: 0; /* Reset margin-top for mobile */
+    }
+
+    .profile-picture-container {
+        margin: 7vh 2vh 3vh 1vh;
+        width: 180px; /* Adjust width */
+        height: 180px; /* Adjust height */
+    }
+
+    .intro-name {
+        font-size: 1.3em; /* Adjusted for mobile */
+        margin: 1% auto; /* Center align */
+    }
+
+    .about-introduction {
+        font-size: 16px; /* Adjusted for mobile */
+        line-height: 28px;
+    }
+
+    .primary-button {
+        font-size: 14px;
+        padding: 5px 12px;
+    }
+
+    .intro-text, .typewriter-text {
+        font-size: 0.9em;
+    }
+
+    .typewriter-wrapper {
+        margin-left: 22px;
+        margin-right: 0;
+    }
 }
 
-/* Styling for mouse position display */
-.mouse-position {
-    position: absolute;
-    top: 100%; /* Position below the button */
-    left: 0;
-    margin-top: 10px;
-    color: white;
-    font-size: 12px;
-    font-family: 'Arial', sans-serif;
+/* Additional smaller screen size handling */
+@media (max-width: 480px) {
+    .intro-name {
+        font-size: 1.1em; /* Further reduce font size for very small screens */
+    }
+
+    .typewriter-text {
+        font-size: 0.9em;
+    }
+
+    .primary-button {
+        font-size: 14px;
+        padding: 3px 14px;
+        margin: 0vh 2vh 0vh 0vh;
+    }
 }

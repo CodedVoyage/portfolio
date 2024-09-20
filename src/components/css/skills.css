@@ -2,6 +2,7 @@
 
 .skills-container {
     padding: 20px;
+    background-color: #1d2639;
 }
 
 h2 {
@@ -33,11 +34,18 @@ h2 {
     }
 
 .timeline-content {
-    padding: 20px;
-    background-color: #1b2a4c;
-    border-radius: 8px;
+    background-color: #1b2a4c !important;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    max-height: 150px;
+    margin-bottom: 10px;
+    padding-bottom: 1rem;
+    width: 100%;
+    max-height: 388px !important;
 }
-
 .skill-items-container {
     margin-top: 10px;
 }

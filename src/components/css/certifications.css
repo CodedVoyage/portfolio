@@ -2,7 +2,14 @@
 .certifications-container {
     padding: 20px;
     text-align: center;
+    background-color: #1d2639;
 }
+
+    .certifications-container h2 {
+        font-size: 2rem; /* Default font size for desktop */
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
 
 .certifications-grid, .papers-grid {
     display: grid;
@@ -21,12 +28,12 @@
 
     .certification-card h3, .paper-card h3 {
         margin-top: 0;
-        font-size: 1em;
+        font-size: 1rem;
         font-weight: bold;
     }
 
 .certification-link, .paper-link {
-    color: #007bff;
+    color: #f1f1f1 !important;
     text-decoration: none;
     font-size: 1em;
 }
@@ -39,4 +46,60 @@
     font-style: italic;
     color: #555;
     margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .certifications-container {
+        padding: 10px;
+    }
+
+        .certifications-container h2 {
+            font-size: 1.5rem; /* Adjust font size for tablets */
+        }
+
+    .certifications-grid, .papers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certification-card, .paper-card {
+        padding: 10px;
+    }
+
+        .certification-card h3, .paper-card h3 {
+            font-size: 1rem;
+        }
+
+   .certification-link, .paper-link {
+    color: #f1f1f1 !important;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+    .paper-card .journal {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .certifications-container {
+        padding: 5px;
+    }
+
+        .certifications-container h2 {
+            font-size: 1.1rem; /* Further reduce font size for mobile */
+        }
+
+    .certification-card h3, .paper-card h3 {
+        font-size: 1rem;
+    }
+
+    .certification-link, .paper-link {
+        font-size: 0.8em;
+        color: #f1f1f1 !important;
+    }
+
+    .paper-card .journal {
+        font-size: 0.7em;
+    }
 }
