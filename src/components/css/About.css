@@ -34,7 +34,7 @@
 /* Styling for headings */
 h1, h2 {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Chocolate', sans-serif; /* Apply the new font */
 }
 
 /* Typewriter effect container */
@@ -42,7 +42,7 @@ h1, h2 {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 2% 0% 2% 35%;
+    margin: 2% 0% 2% 25%;
 }
 
 /* Styling for the introductory text */
@@ -56,7 +56,7 @@ h1, h2 {
     font-weight: bold;
     color: white;
     font-size: 1.6em;
-    margin: 1% 1% 0% 19%;
+    margin: 1% 1% 0% 0%;
 }
 
 /* Spacing between introductory text and typewriter effect */
@@ -97,10 +97,10 @@ h1, h2 {
     font-size: 20px;
     line-height: 32px;
     margin-bottom: 42px;
-    color: rgba(242, 243, 244, 0.584);
+    color: #3E2723; /* Dark chocolate color */
+    font-family: 'Chocolate', sans-serif; /* Apply the new font */
 }
 
-/* Responsive styling for smaller screens */
 /* Responsive styling for smaller screens */
 @media (max-width: 768px) {
     .about-container {
@@ -157,3 +157,12 @@ h1, h2 {
         margin: 0vh 2vh 0vh 0vh;
     }
 }
+
+.word {
+    transition: color 0.5s ease;
+}
+
+    .word:hover {
+        color: #D7CCC8; /* Lighter chocolate color for hover */
+        text-shadow: 0 0 10px rgba(255, 204, 153, 0.8); /* Optional glow effect */
+    }

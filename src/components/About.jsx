@@ -5,9 +5,10 @@ import profilePicture from '../assets/profile-picture.webp';
 import './css/About.css';
 
 const About = () => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [showGreeting, setShowGreeting] = useState(true);
     const [showFullIntro, setShowFullIntro] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const words = aboutData.introduction.split(' ');
 
     const getGreeting = () => {
         const hour = new Date().getHours();
@@ -25,18 +26,27 @@ const About = () => {
         return () => clearTimeout(timer1);
     }, []);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prevIndex) => (prevIndex + 1) % words.length);
+        }, 500); // Change word every 500 milliseconds
+
+        return () => clearInterval(interval);
+    }, [words.length]);
+
     const handleButtonClick = () => {
         window.open('https://www.google.com', '_blank');
     };
 
-    const handleMouseMove = (e) => {
-        setMousePosition({ x: e.clientX, y: e.clientY });
+    // Function to generate a gradient color
+    const getGradientColor = (index) => {
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#FFDA33'];
+        return colors[index % colors.length];
     };
 
     return (
         <div className="about-container">
             <div className="profile-picture-container">
-                {/* Profile picture on top */}
                 <img src={profilePicture} alt="Profile" className="profile-picture" />
             </div>
             <div className="about-text">
@@ -56,20 +66,29 @@ const About = () => {
                                 <TypewriterComponent />
                             </span>
                         </div>
+                        <p className="about-introduction">
+                            {words.map((word, index) => (
+                                <span
+                                    key={index}
+                                    className={`word ${index === activeIndex ? 'active' : ''}`}
+                                    style={{
+                                        color: index === activeIndex ? getGradientColor(activeIndex + index) : '#f2f2f2',
+                                        transition: 'color 0.3s'
+                                    }}
+                                >
+                                    {word}{' '}
+                                </span>
+                            ))}
+                        </p>
                     </>
                 )}
-                <p className="about-introduction">
-                    {aboutData.introduction}
-                </p>
-                <div className="button-container" onMouseMove={handleMouseMove}>
+                <div className="button-container">
                     <button className="primary-button" onClick={handleButtonClick}>
                         Check Resume
                     </button>
                 </div>
             </div>
-            
         </div>
-
     );
 };
 

@@ -29,7 +29,7 @@ const Navbar = () => {
 
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
-        setVisible(prevScrollY.current > currentScrollY || currentScrollY < 20); // Show on scroll down, hide on scroll up
+        setVisible(prevScrollY.current > currentScrollY || currentScrollY < 20);
         prevScrollY.current = currentScrollY;
     };
 
@@ -74,7 +74,6 @@ const Navbar = () => {
             <a href="https://github.com/CodedVoyage" target="_blank" rel="noopener noreferrer">
                 <button className="outline-button">Github Profile</button>
             </a>
-
         </nav>
     );
 };
