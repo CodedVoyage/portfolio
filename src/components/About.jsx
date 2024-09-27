@@ -29,7 +29,7 @@ const About = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveIndex((prevIndex) => (prevIndex + 1) % words.length);
-        }, 500); // Change word every 500 milliseconds
+        }, 500);
 
         return () => clearInterval(interval);
     }, [words.length]);
@@ -38,7 +38,6 @@ const About = () => {
         window.open('https://www.google.com', '_blank');
     };
 
-    // Function to generate a gradient color
     const getGradientColor = (index) => {
         const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#FFDA33'];
         return colors[index % colors.length];
@@ -46,6 +45,11 @@ const About = () => {
 
     return (
         <div className="about-container">
+            <div className="fireworks-container">
+                <div className="firework"></div>
+                <div className="firework"></div>
+                <div className="firework"></div>
+            </div>
             <div className="profile-picture-container">
                 <img src={profilePicture} alt="Profile" className="profile-picture" />
             </div>

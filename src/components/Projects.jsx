@@ -5,11 +5,11 @@ import './css/projects.css';
 
 const Projects = () => {
     return (
-        <div className="projects-section p-4">
+        <div className="projects-section p-4 align-items-center justify-content-center">
             <h2 className="text-center my-4 text-light">Work Experience</h2>
-            <div className="row justify-content-center">
+            <div className="row col-lg-6 col-md-6 col-sm-11 mb-3 justify-content-center align-items-center">
                 {workExperienceData.map((exp, index) => (
-                    <div key={index} className="col-md-7 col-lg-7 mb-3">
+                    <div key={index} className=" col-lg-6 col-md-6 col-sm-11 mb-3 align-items-center justify-content-center ">
                         <div className="timeline-content work card shadow-sm p-3">
                             <h3 className="card-title">{exp.company}</h3>
                             <p className="mb-1"><strong>Duration:</strong> {exp.duration}</p>
@@ -22,8 +22,8 @@ const Projects = () => {
             </div>
 
 
-            <h2 className="text-center my-4 text-light">Project Experience</h2>
-            <div className="row justify-content-center">
+            <h2 className="text-center justify-content-center my-4 text-light">Project Experience</h2>
+            <div className="row  justify-content-center col-lg-11 col-md-6 col-sm-11 mb-3">
                 {projectExperienceData.map((proj, index) => (
                     <ProjectCard key={index} project={proj} />
                 ))}
