@@ -1,14 +1,39 @@
 /* Container styling for the About section */
 .about-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 70%;
     max-width: 100%;
-    text-align: left;
-    padding: 6% 4% 3% 8% !important;
+    text-align: center;
+    padding: 6% 4% 3% 4% !important;
     background-color: #1d2639;
     margin: auto;
+    gap: 2rem;
+}
+
+/* Profile picture wrapper with gradient */
+.profile-picture-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, 
+        #ff6b6b, 
+        #4ecdc4, 
+        #45b7d1, 
+        #96ceb4, 
+        #feca57, 
+        #ff9ff3, 
+        #54a0ff
+    );
+    background-size: 300% 300%;
+    animation: gradientShift 3s ease infinite;
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.4), 
+                0 0 60px rgba(78, 205, 196, 0.3),
+                0 0 90px rgba(69, 183, 209, 0.2);
 }
 
 /* Profile picture styles */
@@ -18,10 +43,11 @@
     height: 250px;
     overflow: hidden;
     border-radius: 50%; /* Circular shape */
-    border: 5px solid white;
+    border: 3px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: white;
 }
 
 .profile-picture {
@@ -67,7 +93,7 @@ h1, h2 {
     transition: background 0.3s, transform 0.3s;
     border: 2px solid transparent;
     animation: bounce 1s infinite, moveRandomly 5s infinite;
-    margin: 3% 0% 0% 19%;
+    margin: 3% auto 0% auto;
 }
 
     .primary-button:hover {
@@ -91,10 +117,14 @@ h1, h2 {
         padding: 4% 5%; /* Reduce padding for smaller screens */
         text-align: center; /* Center align text */
         margin-top: 0; /* Reset margin-top for mobile */
+        gap: 1.5rem;
+    }
+
+    .profile-picture-wrapper {
+        padding: 6px;
     }
 
     .profile-picture-container {
-        margin: 7vh 2vh 3vh 1vh;
         width: 180px; /* Adjust width */
         height: 180px; /* Adjust height */
     }
@@ -209,6 +239,19 @@ h1, h2 {
     100% {
         width: var(--finalSize);
         opacity: 0;
+    }
+}
+
+/* Gradient animation for profile picture border */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 

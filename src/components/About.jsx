@@ -1,7 +1,8 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { aboutData } from './Data/Data';
 import TypewriterComponent from './TypewriterComponent';
-import profilePicture from '../assets/profile-picture.webp';
+// import profilePicture from '../assets/profile-picture.webp';
+import profilePicture from '../assets/Abhishek.svg';
 import './css/About.css';
 
 const About = () => {
@@ -50,8 +51,10 @@ const About = () => {
                 <div className="firework"></div>
                 <div className="firework"></div>
             </div>
-            <div className="profile-picture-container">
-                <img src={profilePicture} alt="Profile" className="profile-picture" />
+            <div className="profile-picture-wrapper">
+                <div className="profile-picture-container">
+                    <img src={profilePicture} alt="Profile" className="profile-picture" />
+                </div>
             </div>
             <div className="about-text">
                 {showGreeting && (
